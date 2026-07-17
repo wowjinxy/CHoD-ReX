@@ -12,10 +12,16 @@ copy you legally own, and do not distribute extracted or processed game files.
 - Python 3.10 or newer for the extraction helper.
 - Visual Studio 2022 with the C++ desktop workload if you want to build from
   source.
-- The ReXGlue SDK installed next to this project at:
+- The pinned ReXGlue SDK submodule at:
 
 ```text
-..\rexglue-sdk\out\install\win-amd64
+thirdparty\rexglue-sdk
+```
+
+If you cloned without submodules, initialize them from this project folder:
+
+```powershell
+git submodule update --init --recursive
 ```
 
 - A Castlevania: Harmony of Despair Xbox 360 STFS package. The expected title id
@@ -116,10 +122,13 @@ the container.
 From this project folder:
 
 ```powershell
-.\scripts\codegen.ps1
 .\scripts\configure-release.ps1
+.\scripts\codegen.ps1
 .\scripts\build-release.ps1
 ```
+
+The configure step builds against the pinned SDK source under
+`thirdparty\rexglue-sdk`; no separate ReXGlue SDK install is required.
 
 The release executable is written to:
 

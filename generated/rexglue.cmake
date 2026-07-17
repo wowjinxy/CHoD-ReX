@@ -41,7 +41,7 @@ endif()
 
 # Configure a rexglue target with SDK libraries and platform settings.
 # Call after add_executable() in your CMakeLists.txt.
-# Usage: rexglue_setup_target(<target>)
+# Usage: rexglue_setup_target(<target> [rexglue_configure_target args...])
 macro(rexglue_setup_target target_name)
     target_sources(${target_name} PRIVATE ${REXGLUE_ENTRYPOINT_GENERATED_SOURCES})
     target_include_directories(${target_name} PRIVATE
@@ -50,7 +50,7 @@ macro(rexglue_setup_target target_name)
         ${REXGLUE_ENTRYPOINT_INCLUDE_DIR}
     )
     target_link_libraries(${target_name} PRIVATE rex::runtime)
-    rexglue_configure_target(${target_name})
+    rexglue_configure_target(${target_name} ${ARGN})
 endmacro()
 
 # Include DLL module shared library targets if codegen has generated them

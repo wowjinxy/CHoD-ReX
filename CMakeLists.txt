@@ -21,4 +21,4 @@ else()
     add_executable(castlevania_harmony_of_despair ${CASTLEVANIAHARMONYOFDESPAIR_SOURCES})
 endif()
 
-rexglue_setup_target(castlevania_harmony_of_despair)
+rexglue_setup_target(castlevania_harmony_of_despair GPU_PLUGINS xenos)

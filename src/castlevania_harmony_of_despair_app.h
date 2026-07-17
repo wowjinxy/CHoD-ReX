@@ -29,6 +29,13 @@ class CastlevaniaHarmonyOfDespairApp : public rex::ReXApp {
   // void OnPostSetup() override {}
   // void OnCreateDialogs(rex::ui::ImGuiDrawer* drawer) override {}
   // void OnShutdown() override {}
+  void OnPreSetup(rex::RuntimeConfig& config) override {
+    if (config.gpu_plugin.empty()) {
+      config.gpu_plugin = "xenos";
+      REXLOG_INFO("Using default GPU plugin: {}", config.gpu_plugin);
+    }
+  }
+
   bool SetupPresentation() override {
     if (!rex::ReXApp::SetupPresentation())
       return false;

@@ -1,0 +1,4 @@
+[submodule "thirdparty/rexglue-sdk"]
+	path = thirdparty/rexglue-sdk
+	url = https://github.com/wowjinxy/rexglue-sdk.git
+	branch = chod/code-sections-sdk
