@@ -29,3 +29,7 @@
 # Logs and scratch output
 *.log
 *.tmp
+
+# Python helper cache
+__pycache__/
+*.py[cod]

@@ -1,40 +1,119 @@
-# Castlevania Harmony of Despair Recomp
+# Castlevania: Harmony of Despair Recomp
 
-ReXGlue scaffold for a Castlevania Harmony of Despair Xbox 360 recompilation project.
+ReXGlue project for a Windows recompilation of the Xbox 360 version of
+Castlevania: Harmony of Despair.
 
-## Local SDK
+This repository does not contain game files. Use it only with game data from a
+copy you legally own, and do not distribute extracted or processed game files.
 
-The SDK is expected at:
+## What You Need
 
-```powershell
+- Windows 10 or newer.
+- Python 3.10 or newer for the extraction helper.
+- Visual Studio 2022 with the C++ desktop workload if you want to build from
+  source.
+- The ReXGlue SDK installed next to this project at:
+
+```text
 ..\rexglue-sdk\out\install\win-amd64
 ```
 
-The CLI is available at:
+- A Castlevania: Harmony of Despair Xbox 360 STFS package. The expected title id
+  is `58410A7A`, and XBLA packages normally live under a path like:
+
+```text
+...\58410A7A\000D0000\<long package file name>
+```
+
+## Game Data Layout
+
+When running from this source tree, the app automatically looks for a sibling
+game-data folder:
+
+```text
+RexGlue\
+  Castlevania Harmony of Despair\
+  Castlevania-Harmony-of-Despair\
+    default.xex
+    58410A7A.stfsheader
+    data\
+```
+
+For a packaged player build, put the extracted files in an `assets` folder next
+to the executable:
+
+```text
+castlevania_harmony_of_despair.exe
+assets\
+  default.xex
+  58410A7A.stfsheader
+  data\
+```
+
+The full LIVE package is not needed after extraction. The extractor writes the
+small `58410A7A.stfsheader` sidecar for metadata/debugging.
+
+## Extract Game Data
+
+From this project folder:
 
 ```powershell
-..\rexglue-sdk\out\install\win-amd64\bin\rexglue.exe
+py -3 .\scripts\extract_game_data.py `
+  "D:\Xenia\58410A7A\000D0000\652844FE3155A56E8CE9CA6EF3D78208784BB55558" `
+  --output "..\Castlevania-Harmony-of-Despair"
 ```
 
-## Game Files
+By default the tool extracts every file in the package and refuses to overwrite
+existing files. Add `--overwrite` only when you intentionally want to replace the
+output folder contents.
 
-This project currently points at the local dump next to the project:
+Useful checks:
+
+```powershell
+# List package contents without writing files.
+py -3 .\scripts\extract_game_data.py "D:\path\to\package" --list
+
+# Extract only the files this game normally needs at runtime.
+py -3 .\scripts\extract_game_data.py "D:\path\to\package" `
+  --output ".\assets" `
+  --only "default.xex" `
+  --only "data/*"
+```
+
+The helper supports single-file `CON`, `LIVE`, and `PIRS` STFS packages. It does
+not support multi-file SVOD packages, and it does not decrypt, patch, or download
+game files.
+
+## Raw vs Expanded Executables
+
+The STFS package contains the original Xbox executable payloads. In this working
+dump, those raw files are kept as `.orig`, while the active names are expanded
+files used by ReXGlue codegen:
 
 ```text
-..\Castlevania-Harmony-of-Despair
+default.xex.orig
+default.xex
+data\player_dll\dllAlucard.dll.orig
+data\player_dll\dllAlucard.dll
+...
 ```
 
-The manifest includes the main `default.xex` plus the six character modules under:
+For a developer/codegen dump, extract with `--orig-executables` so the helper
+does not overwrite active expanded files:
 
-```text
-data\player_dll\
+```powershell
+py -3 .\scripts\extract_game_data.py "D:\path\to\package" `
+  --output "..\Castlevania-Harmony-of-Despair" `
+  --orig-executables
 ```
 
-Do not commit game binaries, extracted assets, or generated recomp output.
+After that, use your own XEX processing workflow to produce the active
+`default.xex` and `data\player_dll\*.dll` files. This Python helper only unpacks
+the container.
 
-## Workflow
+## Build From Source
 
-From this folder:
+From this project folder:
 
 ```powershell
 .\scripts\codegen.ps1
@@ -42,46 +121,65 @@ From this folder:
 .\scripts\build-release.ps1
 ```
 
+The release executable is written to:
+
+```text
+out\build\win-amd64-release\castlevania_harmony_of_despair.exe
+```
+
+If Visual Studio fails from the IDE, use `.\scripts\build-release.ps1`; it sets
+up the VS and LLVM environment expected by this project.
+
+## Run
+
+Double-click the built executable, or launch it from PowerShell:
+
+```powershell
+.\out\build\win-amd64-release\castlevania_harmony_of_despair.exe
+```
+
+The window title should be:
+
+```text
+Castlevania: Harmony of Despair
+```
+
+Runtime logs are written under:
+
+```text
+out\build\win-amd64-release\logs
+```
+
+Crash dumps, when Windows creates them, are usually under:
+
+```text
+%LOCALAPPDATA%\CrashDumps
+```
+
 ## License State
 
-The runtime reports XBLA entitlement through the `license_mask` cvar used by
-`XamContentGetLicenseMask`. The config file is loaded from next to the built
-executable:
+The current app initializes the XBLA entitlement mask internally if the runtime
+config has not already set one. You do not need to keep the original full LIVE
+package next to the extracted data.
+
+If you are debugging license behavior, the runtime config lives next to the
+built executable:
 
 ```text
 out\build\win-amd64-release\castlevania_harmony_of_despair.toml
 ```
 
-Integer cvars are decimal. A legitimate entitlement mask can be set there as:
+Integer cvars are decimal. A nonzero `license_mask` value in that file takes
+priority over the app default.
 
-```toml
-license_mask = 0
-```
+## Troubleshooting
 
-At startup, the app first respects any nonzero configured `license_mask`. If the
-mask is still `0`, it scans the game data folder for this title's STFS package
-and copies the package's active license bits when active license flags are
-present.
-
-To inspect the STFS package header and see whether it contains active license
-flags:
-
-```powershell
-.\scripts\inspect-stfs-license.ps1
-```
-
-To avoid keeping a full duplicate LIVE package after extraction, export only
-the fixed STFS header to the extracted game root, next to `default.xex` and
-`data\`:
-
-```powershell
-.\scripts\export-stfs-license-header.ps1 `
-  -PackagePath "D:\Xenia\58410A7A\000D0000\652844FE3155A56E8CE9CA6EF3D78208784BB55558" `
-  -OutputPath "..\Castlevania-Harmony-of-Despair\58410A7A.stfsheader"
-```
-
-The sidecar is about 38 KB and contains the STFS metadata needed for entitlement
-mask detection, not the extracted game payload.
-
-The extracted local package currently declares license bit `0x00000001`, but
-its package header has no active license flags, so the derived mask is `0`.
+- `Package title id is ... expected 0x58410A7A`: you pointed the extractor at a
+  different title's package.
+- `Refusing to overwrite existing file`: choose a clean output folder or rerun
+  with `--overwrite`.
+- The app cannot find game data: put the extracted files in `assets` next to the
+  exe, or use the sibling `..\Castlevania-Harmony-of-Despair` folder when
+  running from this source tree.
+- A crash after pressing Start usually means the recomp hit another missing or
+  mis-sized generated function. Check the newest log and crash dump first.
