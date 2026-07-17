@@ -1,0 +1,31 @@
+# Build products
+/out/
+
+# Local IDE state
+/.vs/
+
+# Generated code derived from local game binaries
+/generated/default/
+/generated/dllalucard/
+/generated/dllaxearmor/
+/generated/dllcharlotte/
+/generated/dlljonathan/
+/generated/dllshanoa/
+/generated/dllsoma/
+
+# Local game dump/material
+/assets/*
+!/assets/README.md
+
+# Common Xbox 360 dump artifacts
+*.xex
+*.dll
+*.iso
+*.xcp
+*.zar
+*.pak
+*.bin
+
+# Logs and scratch output
+*.log
+*.tmp
