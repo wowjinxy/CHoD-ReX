@@ -192,3 +192,7 @@ priority over the app default.
   running from this source tree.
 - A crash after pressing Start usually means the recomp hit another missing or
   mis-sized generated function. Check the newest log and crash dump first.
+
+
+Consder following my patreon. everything I make is free and any money sent is purely for donation only.
+https://www.patreon.com/wowjinxy
