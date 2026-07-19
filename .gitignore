@@ -1,5 +1,8 @@
 # Build products
 /out/
+/tools/**/bin/
+/tools/**/obj/
+/tools/**/out/
 
 # Local IDE state
 /.vs/
@@ -12,6 +15,7 @@
 /generated/dlljonathan/
 /generated/dllshanoa/
 /generated/dllsoma/
+/generated/data/
 
 # Local game dump/material
 /assets/*

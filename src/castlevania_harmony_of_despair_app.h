@@ -6,11 +6,14 @@
 
 #include <cstdint>
 
+#include "chod_loose_content.h"
+
 #include <rex/filesystem.h>
 #include <rex/filesystem/devices/stfs_container_device.h>
 #include <rex/logging.h>
 #include <rex/rex_app.h>
 #include <rex/system/flags.h>
+#include <rex/ui/flags.h>
 
 class CastlevaniaHarmonyOfDespairApp : public rex::ReXApp {
  public:
@@ -44,7 +47,12 @@ class CastlevaniaHarmonyOfDespairApp : public rex::ReXApp {
     return true;
   }
 
-  void OnPostInitLogging() override { ConfigureLicenseMask(); }
+  void OnPostInitLogging() override {
+    ConfigureLicenseMask();
+    ConfigureWindowMode();
+  }
+
+  void OnPostSetup() override { InstallChodLooseContentHooks(runtime()); }
 
   void OnConfigurePaths(rex::PathConfig& paths) override {
     if (!paths.game_data_root.empty())
@@ -77,6 +85,13 @@ class CastlevaniaHarmonyOfDespairApp : public rex::ReXApp {
       return;
     }
 
-    REXCVAR_SET(license_mask, 1);
+    REXCVAR_SET(license_mask, 0xFFFFFFFFu);
+  }
+
+  void ConfigureWindowMode() {
+    if (REXCVAR_GET(fullscreen)) {
+      REXCVAR_SET(fullscreen, false);
+      REXLOG_INFO("Using default window mode: windowed");
+    }
   }
 };

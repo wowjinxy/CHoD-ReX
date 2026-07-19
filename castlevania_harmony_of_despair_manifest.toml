@@ -2,7 +2,7 @@
 
 [project]
 name = "castlevania_harmony_of_despair"
-sdk_version = "0.8.1.4"
+sdk_version = "0.8.0"
 game_root = "../castlevania-harmony-of-despair"
 
 [entrypoint]
@@ -82,6 +82,12 @@ size = 16
 name = "sub_824552C0"
 size = 28
 
+# DLC stage callback reached through gameplay dispatch after entering loose
+# Chapter DLC. The analyzer gap-fills this range but does not seed this entry.
+[entrypoint.functions."8238A1E8"]
+name = "sub_8238A1E8"
+size = 268
+
 # Override the PDATA extent. This function's jump table enters cleanup code
 # beyond the recorded PDATA end.
 [entrypoint.functions."8277ECF0"]
@@ -150,3 +156,676 @@ size = 8
 [modules.functions."830B9DC8"]
 name = "sub_830B9DC8"
 size = 48
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCaltair.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCaltair.dll"
+out_directory_path = "generated/data/enemy/DLL_FCaltair"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCaxe.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCaxe.dll"
+out_directory_path = "generated/data/enemy/DLL_FCaxe"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCbat.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCbat.dll"
+out_directory_path = "generated/data/enemy/DLL_FCbat"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCbigbat.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCbigbat.dll"
+out_directory_path = "generated/data/enemy/DLL_FCbigbat"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCbonep.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCbonep.dll"
+out_directory_path = "generated/data/enemy/DLL_FCbonep"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCcrow.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCcrow.dll"
+out_directory_path = "generated/data/enemy/DLL_FCcrow"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCdeath.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCdeath.dll"
+out_directory_path = "generated/data/enemy/DLL_FCdeath"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FcDracula.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FcDracula.dll"
+out_directory_path = "generated/data/enemy/DLL_FcDracula"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FcDraPet.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FcDraPet.dll"
+out_directory_path = "generated/data/enemy/DLL_FcDraPet"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCfishman.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCfishman.dll"
+out_directory_path = "generated/data/enemy/DLL_FCfishman"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCfranc.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCfranc.dll"
+out_directory_path = "generated/data/enemy/DLL_FCfranc"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCghost.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCghost.dll"
+out_directory_path = "generated/data/enemy/DLL_FCghost"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FcGuillotine.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FcGuillotine.dll"
+out_directory_path = "generated/data/enemy/DLL_FcGuillotine"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FClance.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FClance.dll"
+out_directory_path = "generated/data/enemy/DLL_FClance"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCmeduhead.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCmeduhead.dll"
+out_directory_path = "generated/data/enemy/DLL_FCmeduhead"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCmedusa.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCmedusa.dll"
+out_directory_path = "generated/data/enemy/DLL_FCmedusa"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCmummy.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCmummy.dll"
+out_directory_path = "generated/data/enemy/DLL_FCmummy"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCnomi.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCnomi.dll"
+out_directory_path = "generated/data/enemy/DLL_FCnomi"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCpanther.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCpanther.dll"
+out_directory_path = "generated/data/enemy/DLL_FCpanther"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCredskl.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCredskl.dll"
+out_directory_path = "generated/data/enemy/DLL_FCredskl"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCskl.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCskl.dll"
+out_directory_path = "generated/data/enemy/DLL_FCskl"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCwhitedra.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCwhitedra.dll"
+out_directory_path = "generated/data/enemy/DLL_FCwhitedra"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FCzombi.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FCzombi.dll"
+out_directory_path = "generated/data/enemy/DLL_FCzombi"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuDokugan.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuDokugan.dll"
+out_directory_path = "generated/data/enemy/DLL_FuDokugan"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuFugubara.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuFugubara.dll"
+out_directory_path = "generated/data/enemy/DLL_FuFugubara"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuHannya.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuHannya.dll"
+out_directory_path = "generated/data/enemy/DLL_FuHannya"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuHbsr.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuHbsr.dll"
+out_directory_path = "generated/data/enemy/DLL_FuHbsr"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuHiguruma.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuHiguruma.dll"
+out_directory_path = "generated/data/enemy/DLL_FuHiguruma"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuHisyouka.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuHisyouka.dll"
+out_directory_path = "generated/data/enemy/DLL_FuHisyouka"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuKetsugan.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuKetsugan.dll"
+out_directory_path = "generated/data/enemy/DLL_FuKetsugan"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuKyokotsu.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuKyokotsu.dll"
+out_directory_path = "generated/data/enemy/DLL_FuKyokotsu"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuRyukibi.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuRyukibi.dll"
+out_directory_path = "generated/data/enemy/DLL_FuRyukibi"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_FuSimon.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_FuSimon.dll"
+out_directory_path = "generated/data/enemy/DLL_FuSimon"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_PSanfauglir.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_PSanfauglir.dll"
+out_directory_path = "generated/data/enemy/DLL_PSanfauglir"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_PsBeel.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_PsBeel.dll"
+out_directory_path = "generated/data/enemy/DLL_PsBeel"
+includes = []
+
+# Export ordinal 1. The game resolves this dynamically with XexGetProcedureAddress,
+# so keep it rooted even if the analyzer misses the export table entry.
+[modules.functions."8BF11568"]
+name = "sub_8BF11568"
+size = 96
+
+# Alternate vtable entry reached from the Beelzebub setup table. This address
+# lands inside the PDATA body for 0x8BF19248, so seed it until the analyzer can
+# discover non-RTTI vtable entries automatically.
+[modules.functions."8BF19350"]
+name = "sub_8BF19350"
+size = 340
+
+[[modules]]
+guest_path = "data/enemy/DLL_PSberrigan.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_PSberrigan.dll"
+out_directory_path = "generated/data/enemy/DLL_PSberrigan"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_PSfishh.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_PSfishh.dll"
+out_directory_path = "generated/data/enemy/DLL_PSfishh"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_PSgaibon.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_PSgaibon.dll"
+out_directory_path = "generated/data/enemy/DLL_PSgaibon"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_PSkillerf.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_PSkillerf.dll"
+out_directory_path = "generated/data/enemy/DLL_PSkillerf"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_PSukobach.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_PSukobach.dll"
+out_directory_path = "generated/data/enemy/DLL_PSukobach"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_Region.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_Region.dll"
+out_directory_path = "generated/data/enemy/DLL_Region"
+includes = []
+
+[[modules]]
+guest_path = "data/enemy/DLL_Ryukotsu.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/enemy/DLL_Ryukotsu.dll"
+out_directory_path = "generated/data/enemy/DLL_Ryukotsu"
+includes = []
+
+[[modules]]
+guest_path = "data/player/dllFuma.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/player/dllFuma.dll"
+out_directory_path = "generated/data/player/dllFuma"
+includes = []
+
+[[modules]]
+guest_path = "data/player/dllJulius.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/player/dllJulius.dll"
+out_directory_path = "generated/data/player/dllJulius"
+includes = []
+
+[[modules]]
+guest_path = "data/player/dllMaria.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/player/dllMaria.dll"
+out_directory_path = "generated/data/player/dllMaria"
+includes = []
+
+[[modules]]
+guest_path = "data/player/dllRichter.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/player/dllRichter.dll"
+out_directory_path = "generated/data/player/dllRichter"
+includes = []
+
+[[modules]]
+guest_path = "data/player/dllSimon.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/player/dllSimon.dll"
+out_directory_path = "generated/data/player/dllSimon"
+includes = []
+
+[[modules]]
+guest_path = "data/player/dllYoko.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/player/dllYoko.dll"
+out_directory_path = "generated/data/player/dllYoko"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFCaxe.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFCaxe.dll"
+out_directory_path = "generated/data/shot/dllshotFCaxe"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFCbone.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFCbone.dll"
+out_directory_path = "generated/data/shot/dllshotFCbone"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFCcurseexpl.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFCcurseexpl.dll"
+out_directory_path = "generated/data/shot/dllshotFCcurseexpl"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFcDraFire.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFcDraFire.dll"
+out_directory_path = "generated/data/shot/dllshotFcDraFire"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFcDraMaku.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFcDraMaku.dll"
+out_directory_path = "generated/data/shot/dllshotFcDraMaku"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFCfireball.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFCfireball.dll"
+out_directory_path = "generated/data/shot/dllshotFCfireball"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFCgshuriken.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFCgshuriken.dll"
+out_directory_path = "generated/data/shot/dllshotFCgshuriken"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFChadouken.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFChadouken.dll"
+out_directory_path = "generated/data/shot/dllshotFChadouken"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFCmdaiko.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFCmdaiko.dll"
+out_directory_path = "generated/data/shot/dllshotFCmdaiko"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFCvkshot.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFCvkshot.dll"
+out_directory_path = "generated/data/shot/dllshotFCvkshot"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFumaRyukotsushot.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFumaRyukotsushot.dll"
+out_directory_path = "generated/data/shot/dllshotFumaRyukotsushot"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotFumaRyukotsusoul.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotFumaRyukotsusoul.dll"
+out_directory_path = "generated/data/shot/dllshotFumaRyukotsusoul"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotGlyphAcerbatus.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotGlyphAcerbatus.dll"
+out_directory_path = "generated/data/shot/dllshotGlyphAcerbatus"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotGlyphDextroCustos.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotGlyphDextroCustos.dll"
+out_directory_path = "generated/data/shot/dllshotGlyphDextroCustos"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotGlyphGlobus.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotGlyphGlobus.dll"
+out_directory_path = "generated/data/shot/dllshotGlyphGlobus"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotGlyphLuminatio.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotGlyphLuminatio.dll"
+out_directory_path = "generated/data/shot/dllshotGlyphLuminatio"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotGlyphSinestroCustos.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotGlyphSinestroCustos.dll"
+out_directory_path = "generated/data/shot/dllshotGlyphSinestroCustos"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotLearningFCdeath.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotLearningFCdeath.dll"
+out_directory_path = "generated/data/shot/dllshotLearningFCdeath"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSanfsoul.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSanfsoul.dll"
+out_directory_path = "generated/data/shot/dllshotPSanfsoul"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPsBeelShot.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPsBeelShot.dll"
+out_directory_path = "generated/data/shot/dllshotPsBeelShot"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPsBeelSoul.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPsBeelSoul.dll"
+out_directory_path = "generated/data/shot/dllshotPsBeelSoul"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSberriganshot.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSberriganshot.dll"
+out_directory_path = "generated/data/shot/dllshotPSberriganshot"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSberrigansoul.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSberrigansoul.dll"
+out_directory_path = "generated/data/shot/dllshotPSberrigansoul"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSfishhshot.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSfishhshot.dll"
+out_directory_path = "generated/data/shot/dllshotPSfishhshot"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSfishhsoul.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSfishhsoul.dll"
+out_directory_path = "generated/data/shot/dllshotPSfishhsoul"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSgaibonshot.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSgaibonshot.dll"
+out_directory_path = "generated/data/shot/dllshotPSgaibonshot"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSgaibonsoul.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSgaibonsoul.dll"
+out_directory_path = "generated/data/shot/dllshotPSgaibonsoul"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSkillerfsoul.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSkillerfsoul.dll"
+out_directory_path = "generated/data/shot/dllshotPSkillerfsoul"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotPSukobachfire.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotPSukobachfire.dll"
+out_directory_path = "generated/data/shot/dllshotPSukobachfire"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotRegionFire.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotRegionFire.dll"
+out_directory_path = "generated/data/shot/dllshotRegionFire"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotRegionHuman.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotRegionHuman.dll"
+out_directory_path = "generated/data/shot/dllshotRegionHuman"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotRegionLaser.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotRegionLaser.dll"
+out_directory_path = "generated/data/shot/dllshotRegionLaser"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCaltair.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCaltair.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCaltair"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCbat.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCbat.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCbat"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCbigbat.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCbigbat.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCbigbat"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCbone.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCbone.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCbone"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCcrow.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCcrow.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCcrow"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCdeath.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCdeath.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCdeath"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCdracula.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCdracula.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCdracula"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCfishman.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCfishman.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCfishman"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCghost.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCghost.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCghost"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFClance.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFClance.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFClance"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCmedusa.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCmedusa.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCmedusa"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCmummy.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCmummy.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCmummy"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCnomi.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCnomi.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCnomi"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCpanther.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCpanther.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCpanther"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCwhitedra.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCwhitedra.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCwhitedra"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFCzombi.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFCzombi.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFCzombi"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaDokugan.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaDokugan.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaDokugan"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaFugubara.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaFugubara.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaFugubara"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaHannya.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaHannya.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaHannya"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaHiguruma.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaHiguruma.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaHiguruma"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaHisyouka.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaHisyouka.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaHisyouka"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaKetsugan.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaKetsugan.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaKetsugan"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaKyokotsu.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaKyokotsu.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaKyokotsu"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaRyukibi.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaRyukibi.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaRyukibi"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSoulFumaSimon.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSoulFumaSimon.dll"
+out_directory_path = "generated/data/shot/dllshotSoulFumaSimon"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSubFCaxe.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSubFCaxe.dll"
+out_directory_path = "generated/data/shot/dllshotSubFCaxe"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSubFCcross.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSubFCcross.dll"
+out_directory_path = "generated/data/shot/dllshotSubFCcross"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSubFCholywater.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSubFCholywater.dll"
+out_directory_path = "generated/data/shot/dllshotSubFCholywater"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSubFCknife.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSubFCknife.dll"
+out_directory_path = "generated/data/shot/dllshotSubFCknife"
+includes = []
+
+[[modules]]
+guest_path = "data/shot/dllshotSubJavelin.dll"
+file_path = "../Castlevania-Harmony-of-Despair/data/shot/dllshotSubJavelin.dll"
+out_directory_path = "generated/data/shot/dllshotSubJavelin"
+includes = []

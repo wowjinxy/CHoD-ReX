@@ -13,6 +13,8 @@ include(generated/rexglue.cmake)
 # Sources
 set(CASTLEVANIAHARMONYOFDESPAIR_SOURCES
     src/main.cpp
+    src/chod_loose_content.cpp
+    src/chod_title_exit.cpp
 )
 
 if(WIN32)
